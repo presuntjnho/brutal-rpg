@@ -1,0 +1,30 @@
+{
+  "id": "brutal-rpg",
+  "title": "Brutal RPG",
+  "description": "Protótipo de sistema Brutal RPG para Foundry VTT v14",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Comunidade Brutal RPG"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/brutal.css"
+  ],
+  "documentTypes": {
+    "Actor": {
+      "personagem": {},
+      "assassino": {}
+    }
+  },
+  "packs": [],
+  "languages": [],
+  "socket": false
+}
