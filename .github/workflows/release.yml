@@ -1,0 +1,45 @@
+name: Publicar sistema Foundry
+on:
+  push:
+    branches: [main]
+    paths:
+      - system.json
+      - scripts/**
+      - styles/**
+      - templates/**
+      - .github/workflows/release.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: brutal-rpg-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ler versão do manifesto
+        id: manifest
+        run: |
+          echo "version=$(node -p "require('./system.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Empacotar sistema
+        run: |
+          mkdir -p dist/brutal-rpg
+          cp system.json dist/brutal-rpg/
+          cp -r scripts styles templates dist/brutal-rpg/
+          cd dist
+          zip -qr brutal-rpg.zip brutal-rpg
+          unzip -t brutal-rpg.zip
+      - name: Criar ou atualizar release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.manifest.outputs.version }}
+        run: |
+          TAG="v${VERSION}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/brutal-rpg.zip --clobber
+            gh release edit "$TAG" --latest
+          else
+            gh release create "$TAG" dist/brutal-rpg.zip --title "Brutal RPG $TAG" --notes "Protótipo para Foundry VTT v14. Instalação pelo manifesto: https://raw.githubusercontent.com/presuntjnho/brutal-rpg/main/system.json" --latest
+          fi
