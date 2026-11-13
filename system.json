@@ -26,5 +26,9 @@
   },
   "packs": [],
   "languages": [],
-  "socket": false
+  "socket": false,
+  "url": "https://github.com/presuntjnho/brutal-rpg",
+  "manifest": "https://raw.githubusercontent.com/presuntjnho/brutal-rpg/main/system.json",
+  "download": "https://github.com/presuntjnho/brutal-rpg/releases/latest/download/brutal-rpg.zip",
+  "license": "UNLICENSED"
 }
