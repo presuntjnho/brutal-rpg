@@ -1,6 +1,12 @@
 # Brutal RPG — protótipo Foundry VTT v14
 
-Sistema independente (não módulo). Para instalação manual, coloque a pasta `brutal-rpg` em `Data/systems/`, reinicie o Foundry e crie um mundo usando Brutal RPG.
+## Instalação
+
+No Foundry VTT v14, abra **Sistemas de Jogo → Instalar Sistema** e cole esta URL no campo de manifesto:
+
+`https://raw.githubusercontent.com/presuntjnho/brutal-rpg/main/system.json`
+
+Para instalação manual, baixe o ZIP na [página de releases](https://github.com/presuntjnho/brutal-rpg/releases) e extraia a pasta `brutal-rpg` em `Data/systems/`. Reinicie o Foundry e crie um mundo com o sistema Brutal RPG.
 
 ## Recursos implementados no protótipo
 - Ficha inspirada no livro, com estereótipos, atributos e recursos.
@@ -13,4 +19,3 @@ Sistema independente (não módulo). Para instalação manual, coloque a pasta `
 - Dados destinados ao Assassino ainda não são creditados automaticamente.
 - Habilidades especiais ainda não são automatizadas.
 - Ficha adaptada das páginas de estereótipos; sem ilustrações protegidas do PDF.
-- Ainda não existe release ZIP nem URL de instalação automática; é necessária uma etapa de empacotamento/publicação.
