@@ -1,4 +1,4 @@
-<section class="brutal">
+<section class="brutal{{#unless killer}} brutal-character{{/unless}}">
   <header>
     <h1>BRUTAL <small>RPG</small></h1>
     <input name="name" value="{{actor.name}}" aria-label="Nome" />
@@ -37,55 +37,67 @@
         <option value="">{{#if bonusAttributes}}Selecione{{else}}Todos os atributos estão treinados{{/if}}</option>
         {{#each bonusAttributes}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
       </select></label>
+      <h2>Pilhas</h2>
+      <div class="piles">
+        <label>comuns <input type="number" min="0" max="6" name="system.pool" value="{{system.pool}}" /></label>
+        <label>fuga <input type="number" min="0" name="system.escapeDice" value="{{system.escapeDice}}" /></label>
+        <label>Tensão <input aria-label="Pontos de Tensão" type="number" min="0" max="10" name="system.tension" value="{{system.tension}}" /></label>
+      </div>
     </div>
   </div>
-  <h2>Condições</h2>
-  <div class="resources">
-    <label>Feridas <input type="number" min="0" max="6" name="system.wounds" value="{{system.wounds}}" /></label>
-    <label>Sequelas <input type="number" min="0" max="5" name="system.sequelae" value="{{system.sequelae}}" /></label>
-    <label>Escapou <input type="checkbox" name="system.escaped" {{#if system.escaped}}checked{{/if}} /></label>
-    <label>Morreu <input type="checkbox" name="system.dead" {{#if system.dead}}checked{{/if}} /></label>
-  </div>
-  <h2>Pilhas</h2>
-  <div class="resources">
-    <label>Dados comuns <input type="number" min="0" max="6" name="system.pool" value="{{system.pool}}" /></label>
-    <label>Dados de fuga <input type="number" min="0" name="system.escapeDice" value="{{system.escapeDice}}" /></label>
-    <label>Pontos de Tensão <input type="number" min="0" max="10" name="system.tension" value="{{system.tension}}" /></label>
-  </div>
-  <h2>Atributos</h2>
-  {{#if missingSpecialties}}<p>Complete as duas especialidades da Sobrevivente.</p>{{/if}}
-  <div class="attrs">
-    {{#each attributes}}
-    <div class="attr">
-      <button type="button" data-action="test" data-test="risk" data-attribute="{{key}}">{{label}}</button>
-      <label>Especialidade <input type="checkbox" name="system.attributes.{{key}}.trained" {{#if trained}}checked{{/if}} /></label>
-    </div>
-    {{/each}}
-  </div>
-  <h2>Ações</h2>
-  <div class="resources">
-    <button type="button" data-action="test" data-test="fright">Teste de susto</button>
-    <button type="button" data-action="offer">Ofertar no Rito</button>
-    {{#if encounter}}
-    <button type="button" data-action="test" data-test="escape">Vazar Dali</button>
-    <button type="button" data-action="test" data-test="fight">Partir para Cima</button>
-    <button type="button" data-action="test" data-test="distract">Distrair</button>
-    <button type="button" data-action="test" data-test="help">Ajudar Alguém</button>
-    <button type="button" data-action="request" data-request="breathe">Recuperar o Fôlego</button>
-    <button type="button" data-action="request" data-request="allIn">Arriscar Tudo</button>
-    {{else}}
-    <button type="button" data-action="request" data-request="reality">Choque de Realidade</button>
-    <button type="button" data-action="request" data-request="heal">Cuidar de Feridas</button>
-    {{/if}}
+  <div class="character-grid">
+    <section>
+      <h2>Atributos</h2>
+      {{#if missingSpecialties}}<p>Complete as duas especialidades da Sobrevivente.</p>{{/if}}
+      <div class="attrs">
+        {{#each attributes}}
+        <div class="attr">
+          <button type="button" data-action="test" data-test="risk" data-attribute="{{key}}">{{label}}</button>
+          <label>Especialidade <input type="checkbox" name="system.attributes.{{key}}.trained" {{#if trained}}checked{{/if}} /></label>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+    <section>
+      <h2>Condições</h2>
+      <div class="conditions">
+        <label>Feridas <input type="number" min="0" max="6" name="system.wounds" value="{{system.wounds}}" /></label>
+        <label>Sequelas <input type="number" min="0" max="5" name="system.sequelae" value="{{system.sequelae}}" /></label>
+        <label>Escapou <input type="checkbox" name="system.escaped" {{#if system.escaped}}checked{{/if}} /></label>
+        <label>Morreu <input type="checkbox" name="system.dead" {{#if system.dead}}checked{{/if}} /></label>
+      </div>
+      <h2>Ações</h2>
+      <div class="character-actions">
+        <button type="button" data-action="test" data-test="fright">Teste de susto</button>
+        <button type="button" data-action="offer">Ofertar no Rito</button>
+        {{#if encounter}}
+        <button type="button" data-action="test" data-test="escape">Vazar Dali</button>
+        <button type="button" data-action="test" data-test="fight">Partir para Cima</button>
+        <button type="button" data-action="test" data-test="distract">Distrair</button>
+        <button type="button" data-action="test" data-test="help">Ajudar Alguém</button>
+        <button type="button" data-action="request" data-request="breathe">Recuperar o Fôlego</button>
+        <button type="button" data-action="request" data-request="allIn">Arriscar Tudo</button>
+        {{else}}
+        <button type="button" data-action="request" data-request="reality">Choque de Realidade</button>
+        <button type="button" data-action="request" data-request="heal">Cuidar de Feridas</button>
+        {{/if}}
+      </div>
+    </section>
   </div>
   <h2>Apegos</h2>
-  <div class="resources">
-    <label>Item icônico <input name="system.iconicItem" value="{{system.iconicItem}}" /></label>
-    <button type="button" data-action="request" data-request="iconic">Pedir +1 PT</button>
-    <label>Relação afetiva <input name="system.relationship" value="{{system.relationship}}" /></label>
-    <button type="button" data-action="request" data-request="relationship">Pedir +2 PT</button>
-    <label>Desejo obscuro <input name="system.desire" value="{{system.desire}}" /></label>
-    <button type="button" data-action="request" data-request="desire">Pedir +3 PT</button>
+  <div class="attachments">
+    <div class="attachment-row">
+      <label>Item icônico <input name="system.iconicItem" value="{{system.iconicItem}}" /></label>
+      <button type="button" data-action="request" data-request="iconic">Pedir +1 PT</button>
+    </div>
+    <div class="attachment-row">
+      <label>Relação afetiva <input name="system.relationship" value="{{system.relationship}}" /></label>
+      <button type="button" data-action="request" data-request="relationship">Pedir +2 PT</button>
+    </div>
+    <div class="attachment-row">
+      <label>Desejo obscuro <input name="system.desire" value="{{system.desire}}" /></label>
+      <button type="button" data-action="request" data-request="desire">Pedir +3 PT</button>
+    </div>
   </div>
   <label>Habilidades <textarea name="system.ability">{{system.ability}}</textarea></label>
   <label>Cicatrizes <textarea name="system.scars">{{system.scars}}</textarea></label>

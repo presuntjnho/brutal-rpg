@@ -7,3 +7,104 @@
 .brutal .hero select { width: 100%; }
 .brutal h2 { margin-block: 16px 5px; }
 .brutal .hero > div { align-content: start; }
+
+.brutal-character {
+  container: brutal-character / inline-size;
+}
+
+.brutal-character h1,
+.brutal-character h2 {
+  font-family: Georgia, serif;
+}
+
+.brutal-character h2 {
+  margin: 14px 0 5px;
+}
+
+.brutal-character .hero {
+  grid-template-columns: minmax(110px, 28%) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.brutal-character .hero img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 135 / 158;
+}
+
+.brutal-character .character-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 43%) minmax(0, 1fr);
+  gap: 9%;
+  align-items: start;
+}
+
+.brutal-character :is(.piles, .character-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.brutal-character .conditions {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 12px;
+}
+
+.brutal-character :is(.piles, .conditions) label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brutal-character :is(.piles, .conditions) input[type="number"] {
+  width: 42px;
+}
+
+.brutal-character .attr {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.brutal-character .attr label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brutal-character button {
+  width: auto;
+  min-height: 24px;
+  padding: 3px 7px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.brutal-character .attachments {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.brutal-character .attachment-row {
+  display: grid;
+  grid-template-columns: minmax(0, 205px) max-content;
+  align-items: end;
+  gap: 8px;
+}
+
+.brutal-character .attachment-row input {
+  width: 100%;
+}
+
+.brutal-character textarea {
+  display: block;
+  min-height: 56px;
+}
+
+@container brutal-character (max-width: 440px) {
+  .brutal-character .character-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
