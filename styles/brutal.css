@@ -6,3 +6,4 @@
 .brutal .resources input:not([type="number"]):not([type="checkbox"]) { width: 100%; min-width: 140px; }
 .brutal .hero select { width: 100%; }
 .brutal h2 { margin-block: 16px 5px; }
+.brutal .hero > div { align-content: start; }

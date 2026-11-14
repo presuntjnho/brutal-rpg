@@ -4,16 +4,15 @@
     <input name="name" value="{{actor.name}}" aria-label="Nome" />
     <p>Cena {{scene}}</p>
   </header>
-  {{#if gm}}
-  <div class="resources">
-    <button type="button" data-action="panel">Painel da Diretora</button>
-    <button type="button" data-action="macros">Criar macros</button>
-  </div>
-  {{/if}}
   {{#if killer}}
-  <div class="resources">
-    <label>Pilha da Diretora <input type="number" min="0" name="system.pool" value="{{system.pool}}" /></label>
-    <label>Pontos de Horror <input type="number" min="0" name="system.horror" value="{{system.horror}}" /></label>
+  <div class="hero">
+    <img src="{{actor.img}}" data-action="editImage" data-field="img" alt="Retrato de {{actor.name}}" />
+    <div>
+      <div class="resources">
+        <label>Pilha da Diretora <input type="number" min="0" name="system.pool" value="{{system.pool}}" /></label>
+        <label>Pontos de Horror <input type="number" min="0" name="system.horror" value="{{system.horror}}" /></label>
+      </div>
+    </div>
   </div>
   <h2>Ameaças</h2>
   <div class="resources">
@@ -28,7 +27,7 @@
   <label>Ações únicas <textarea name="system.uniqueActions">{{system.uniqueActions}}</textarea></label>
   {{else}}
   <div class="hero">
-    <img src="{{actor.img}}" data-action="editImage" data-field="img" alt="" />
+    <img src="{{actor.img}}" data-action="editImage" data-field="img" alt="Retrato de {{actor.name}}" />
     <div>
       <label>Arquétipo <select name="system.stereotype">
         <option value="" disabled {{#unless system.stereotype}}selected{{/unless}}>Selecione</option>
@@ -40,6 +39,19 @@
       </select></label>
     </div>
   </div>
+  <h2>Condições</h2>
+  <div class="resources">
+    <label>Feridas <input type="number" min="0" max="6" name="system.wounds" value="{{system.wounds}}" /></label>
+    <label>Sequelas <input type="number" min="0" max="5" name="system.sequelae" value="{{system.sequelae}}" /></label>
+    <label>Escapou <input type="checkbox" name="system.escaped" {{#if system.escaped}}checked{{/if}} /></label>
+    <label>Morreu <input type="checkbox" name="system.dead" {{#if system.dead}}checked{{/if}} /></label>
+  </div>
+  <h2>Pilhas</h2>
+  <div class="resources">
+    <label>Dados comuns <input type="number" min="0" max="6" name="system.pool" value="{{system.pool}}" /></label>
+    <label>Dados de fuga <input type="number" min="0" name="system.escapeDice" value="{{system.escapeDice}}" /></label>
+    <label>Pontos de Tensão <input type="number" min="0" max="10" name="system.tension" value="{{system.tension}}" /></label>
+  </div>
   <h2>Atributos</h2>
   {{#if missingSpecialties}}<p>Complete as duas especialidades da Sobrevivente.</p>{{/if}}
   <div class="attrs">
@@ -49,16 +61,6 @@
       <label>Especialidade <input type="checkbox" name="system.attributes.{{key}}.trained" {{#if trained}}checked{{/if}} /></label>
     </div>
     {{/each}}
-  </div>
-  <h2>Pilhas e condições</h2>
-  <div class="resources">
-    <label>Dados comuns <input type="number" min="0" max="6" name="system.pool" value="{{system.pool}}" /></label>
-    <label>Dados de fuga <input type="number" min="0" name="system.escapeDice" value="{{system.escapeDice}}" /></label>
-    <label>Pontos de Tensão <input type="number" min="0" max="10" name="system.tension" value="{{system.tension}}" /></label>
-    <label>Feridas <input type="number" min="0" max="6" name="system.wounds" value="{{system.wounds}}" /></label>
-    <label>Sequelas <input type="number" min="0" max="5" name="system.sequelae" value="{{system.sequelae}}" /></label>
-    <label>Escapou <input type="checkbox" name="system.escaped" {{#if system.escaped}}checked{{/if}} /></label>
-    <label>Morreu <input type="checkbox" name="system.dead" {{#if system.dead}}checked{{/if}} /></label>
   </div>
   <h2>Ações</h2>
   <div class="resources">

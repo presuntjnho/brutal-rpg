@@ -466,22 +466,6 @@ function selectedActor() {
   return canvas.tokens?.controlled[0]?.actor ?? game.user.character;
 }
 
-async function installMacros() {
-  if (!game.user.isGM) return warn("A Diretora pode criar as macros do sistema.");
-  const commands = {
-    "Brutal · Teste de risco": 'game.system.brutal.roll("risk")',
-    "Brutal · Teste de susto": 'game.system.brutal.roll("fright")',
-    "Brutal · Vazar Dali": 'game.system.brutal.roll("escape")',
-    "Brutal · Recuperar o Fôlego": 'game.system.brutal.request("breathe")',
-    "Brutal · Painel da Diretora": 'game.system.brutal.openPanel()'
-  };
-  const existing = new Set(game.macros.filter(macro => macro.getFlag(ID, "systemMacro")).map(macro => macro.command));
-  const macros = Object.entries(commands).filter(([, command]) => !existing.has(command))
-    .map(([name, command]) => ({ name, command, type: "script", flags: { [ID]: { systemMacro: true } } }));
-  if (macros.length) await Macro.createDocuments(macros);
-  ui.notifications.info("Macros do Brutal disponíveis no diretório de macros.");
-}
-
 class BrutalSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     tag: "form", classes: ["brutal-sheet"], position: { width: 680, height: 740 },
@@ -490,8 +474,6 @@ class BrutalSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
       test(_event, button) { return rollTest(this.actor, button.dataset.test, button.dataset.attribute); },
       request(_event, button) { return requestAction(this.actor, button.dataset.request); },
       offer() { return offerDice(this.actor); },
-      panel() { return openPanel(); },
-      macros() { return installMacros(); },
       initialize() {
         if (!activeDirector() || !actorType(this.actor, "assassino")) return;
         const { primaryLevel, secondaryLevel } = this.actor.system;
@@ -560,7 +542,7 @@ Hooks.once("init", () => {
     types: ["personagem", "assassino"], makeDefault: true, label: "Ficha Brutal"
   });
   game.system.brutal = {
-    openPanel, installMacros,
+    openPanel,
     roll: (action, attribute) => rollTest(selectedActor(), action, attribute),
     request: action => requestAction(selectedActor(), action)
   };
@@ -582,4 +564,3 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   });
   html.append(button);
 });
-

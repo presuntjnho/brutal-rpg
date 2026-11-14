@@ -1,0 +1,18 @@
+{
+  "_id": "brutalGMPanel001",
+  "name": "Brutal · Painel da Diretora",
+  "type": "script",
+  "img": "icons/svg/dice-target.svg",
+  "command": "game.system.brutal.openPanel()",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "brutal-rpg": {
+      "systemMacro": true
+    }
+  },
+  "_key": "!macros!brutalGMPanel001"
+}

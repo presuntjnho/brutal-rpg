@@ -1,0 +1,18 @@
+{
+  "_id": "brutalFleeMacro1",
+  "name": "Brutal · Vazar Dali",
+  "type": "script",
+  "img": "icons/svg/dice-target.svg",
+  "command": "game.system.brutal.roll(\"escape\")",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "brutal-rpg": {
+      "systemMacro": true
+    }
+  },
+  "_key": "!macros!brutalFleeMacro1"
+}

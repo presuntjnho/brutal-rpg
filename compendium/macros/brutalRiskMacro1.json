@@ -1,0 +1,18 @@
+{
+  "_id": "brutalRiskMacro1",
+  "name": "Brutal · Teste de risco",
+  "type": "script",
+  "img": "icons/svg/dice-target.svg",
+  "command": "game.system.brutal.roll(\"risk\")",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "brutal-rpg": {
+      "systemMacro": true
+    }
+  },
+  "_key": "!macros!brutalRiskMacro1"
+}

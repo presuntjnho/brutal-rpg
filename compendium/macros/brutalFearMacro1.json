@@ -1,0 +1,18 @@
+{
+  "_id": "brutalFearMacro1",
+  "name": "Brutal · Teste de susto",
+  "type": "script",
+  "img": "icons/svg/dice-target.svg",
+  "command": "game.system.brutal.roll(\"fright\")",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "brutal-rpg": {
+      "systemMacro": true
+    }
+  },
+  "_key": "!macros!brutalFearMacro1"
+}

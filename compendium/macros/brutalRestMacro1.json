@@ -1,0 +1,18 @@
+{
+  "_id": "brutalRestMacro1",
+  "name": "Brutal · Recuperar o Fôlego",
+  "type": "script",
+  "img": "icons/svg/dice-target.svg",
+  "command": "game.system.brutal.request(\"breathe\")",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "brutal-rpg": {
+      "systemMacro": true
+    }
+  },
+  "_key": "!macros!brutalRestMacro1"
+}
