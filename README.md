@@ -1,21 +1,21 @@
-# Brutal RPG — protótipo Foundry VTT v14
+# Brutal RPG para Foundry VTT v14
 
-## Instalação
+Sistema de jogo baseado no playtest completo.
 
-No Foundry VTT v14, abra **Sistemas de Jogo → Instalar Sistema** e cole esta URL no campo de manifesto:
+## Instalação local
 
-`https://raw.githubusercontent.com/presuntjnho/brutal-rpg/main/system.json`
+Extraia a pasta brutal-rpg do ZIP em Data/systems, reinicie o Foundry e abra um mundo com Brutal RPG. Faça uma cópia do mundo antes de abrir com esta versão, pois as fichas do protótipo tinham campos de regras anteriores.
 
-Para instalação manual, baixe o ZIP na [página de releases](https://github.com/presuntjnho/brutal-rpg/releases) e extraia a pasta `brutal-rpg` em `Data/systems/`. Reinicie o Foundry e crie um mundo com o sistema Brutal RPG.
+## Preparar a mesa
 
-## Recursos implementados no protótipo
-- Ficha inspirada no livro, com estereótipos, atributos e recursos.
-- Clique no atributo para escolher quantidade de d6 e alvo (3 por padrão).
-- Falhas removem dados da reserva do jogador e são anunciadas no chat como dados para o Assassino.
-- Botão +1 Shot converte pontos em Tesão e dados conforme treinamento.
+- Crie fichas de Sobrevivente e escolha um dos 15 arquétipos. A ficha preenche as especialidades compatíveis com o playtest. Complete as lacunas indicadas na ficha. A lista Atributo Bônus filtra os atributos sem especialidade e registra a escolha da mesa.
+- Crie a ficha do Assassino sem dar acesso aos jogadores. Informe as duas Ameaças e seus Níveis de Brutalidade e clique em **Definir pilha e PH iniciais**.
+- No **Painel da Diretora**, selecione o Assassino, informe a pilha de descarte preparada para o thriller e escolha a cena.
+- Para o Rito, abra a sessão no painel. Os jogadores ofertam dados pela ficha. Aplique as oferendas no chat antes de encerrar o Rito.
+- Clique em **Criar macros** em uma ficha com a conta da Diretora. As macros aparecem no diretório do Foundry. Disponibilize as macros de jogador conforme as permissões da mesa e arraste as que quiser para a barra.
 
-## Limitações
-- Não testado dentro do Foundry v14.365; pode exigir ajustes de compatibilidade.
-- Dados destinados ao Assassino ainda não são creditados automaticamente.
-- Habilidades especiais ainda não são automatizadas.
-- Ficha adaptada das páginas de estereótipos; sem ilustrações protegidas do PDF.
+## Durante a sessão
+
+A ficha oferece testes clicáveis, ações de encontro, pedidos de vantagens e recompensas por Apegos. Os cartões no chat permitem à Diretora aplicar transferências, descartes e consequências. O painel mostra a ordem de iniciativa e controla o Rito, os Clamores, o contador de Passos de Suspense e ações gerais do Assassino.
+
+Caminhos, armadilhas, qualidades, poderes, funções ocultas e exceções de arquétipo exigem mediação da mesa. Inteligência reúne as referências a Astúcia, Intelecto e Mental. Complete as especialidades quando o arquétipo tiver menos de duas preenchidas. As Sobreviventes começam com 0 Pontos de Tensão e podem acumular até 10. A iniciativa usa a ordem do playtest para os oito arquétipos correspondentes e os números das fichas ilustradas para os demais. A ordem é exibida no painel para acompanhamento manual.

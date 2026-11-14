@@ -1,8 +1,8 @@
 {
   "id": "brutal-rpg",
   "title": "Brutal RPG",
-  "description": "Protótipo de sistema Brutal RPG para Foundry VTT v14",
-  "version": "0.1.1",
+  "description": "Sistema Brutal RPG baseado no playtest completo para Foundry VTT v14",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -28,7 +28,7 @@
   "languages": [],
   "socket": false,
   "url": "https://github.com/presuntjnho/brutal-rpg",
+  "license": "UNLICENSED",
   "manifest": "https://raw.githubusercontent.com/presuntjnho/brutal-rpg/main/system.json",
-  "download": "https://github.com/presuntjnho/brutal-rpg/releases/download/v0.1.1/brutal-rpg.zip",
-  "license": "UNLICENSED"
+  "download": "https://github.com/presuntjnho/brutal-rpg/releases/download/v0.2.0/brutal-rpg.zip"
 }
